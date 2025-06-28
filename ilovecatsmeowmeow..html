@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Julian Ravenscar</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    body {
+      background: linear-gradient(270deg, #ff6e7f, #bfe9ff, #fddb92, #a18cd1);
+      background-size: 800% 800%;
+      animation: gradientFlow 20s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #f0f0f0;
+    }
+
+    .contact {
+      margin-top: 20px;
+    }
+
+    .contact-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      background: linear-gradient(to right, #d4fc79, #96e6a1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .copy-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 8px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background 0.3s ease;
+    }
+
+    .copy-box:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .copy-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .tooltip {
+      font-size: 0.75rem;
+      color: #a5ffce;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .tooltip.active {
+      display: block;
+      animation: fade 1s ease;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      30% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .join-btn {
+      margin-top: 25px;
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background: linear-gradient(to right, #43e97b, #38f9d7);
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .join-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(102, 255, 195, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="profile.jpg" alt="Julian Ravenscar" class="profile-pic" />
+    <h1>Julian Ravenscar</h1>
+    <p>
+      Dedicated and approachable Discord moderator with a strong track record of supporting communities with professionalism and consistency.
+      I offer my time voluntarily and take pride in providing creative event concepts, well-structured polls, and thoughtful engagement.
+    </p>
+    <p>
+      Known for clear communication, I’m always willing to type detailed responses when needed and never hesitate to assist.
+      I maintain a respectful, inclusive approach, and have extensive experience in bot management and server optimization.
+    </p>
+
+    <div class="contact">
+      <p class="contact-label">For collaboration or support:</p>
+      <div class="copy-box" onclick="copyToClipboard()">
+        <span class="copy-text" id="discordID">ilovecatsmeowmeow.</span>
+        <img src="https://img.icons8.com/ios-filled/20/ffffff/copy.png" alt="Copy Icon"/>
+      </div>
+      <div class="tooltip" id="tooltip">Copied!</div>
+    </div>
+
+    <!-- 💬 New Join Button -->
+    <a class="join-btn" href="https://discord.gg/fMb33ZZ8dA" target="_blank">
+      Join my server
+    </a>
+  </div>
+
+  <script>
+    function copyToClipboard() {
+      const text = document.getElementById('discordID').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const tooltip = document.getElementById('tooltip');
+        tooltip.classList.add('active');
+        setTimeout(() => {
+          tooltip.classList.remove('active');
+        }, 1200);
+      });
+    }
+  </script>
+
+</body>
+</html>
